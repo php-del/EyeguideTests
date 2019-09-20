@@ -99,7 +99,7 @@ public class EyeGuideAuto_test {
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ant-menu-submenu ant-menu-submenu-inline']//div[@class='ant-menu-submenu-title' and @aria-owns='rosters$Menu']//i[@class='anticon anticon-table']"))).click();
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div > div.sidepaneB.ant-layout-sider > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline > div"))).click();
 			//	new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("anticon anticon-table"))).click();
-						List<WebElement> e1 = driver.findElements(By.cssSelector("//*[@class='ant-menu-submenu-title']"));
+						List<WebElement> e1 = driver.findElements(By.xpath("//*[@class='ant-menu-submenu-title']"));
 						
 						e1.get(0).click();
 			Thread.sleep(2000);
