@@ -97,13 +97,11 @@ public class EyeGuideAuto_test {
 
 			//			//Add Profile Start
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ant-menu-submenu ant-menu-submenu-inline']//div[@class='ant-menu-submenu-title' and @aria-owns='rosters$Menu']//i[@class='anticon anticon-table']"))).click();
-			new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div > div.sidepaneB.ant-layout-sider > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline > div"))).click();
+			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div > div.sidepaneB.ant-layout-sider > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline > div"))).click();
 			//	new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("anticon anticon-table"))).click();
-			//			List<WebElement> elements = driver.findElements(By.cssSelector("i.anticon anticon-table"));
-			//			for (int i=0; i<elements.size();i++){
-			//				System.out.println("Radio button text:" + elements.get(i));
-			//			}
-			//			elements.get(0).click();
+						List<WebElement> elements = driver.findElements(By.cssSelector("//*[@class='ant-menu-submenu-title']"));
+						
+						elements.get(0).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//ul[@id='rosters$Menu']/li/div[@class='ant-menu-submenu-title']")).click();
 			Thread.sleep(2000);
