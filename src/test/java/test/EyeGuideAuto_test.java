@@ -37,16 +37,16 @@ public class EyeGuideAuto_test {
 		//WebDriver driver = new FirefoxDriver();
 		//	DesiredCapabilities cap=new DesiredCapabilities();
 		//	cap.setCapability("requireWindowFocus", true);
-		
+
 		System.setProperty("webdriver.chrome.driver","F:\\Browser Chrome Driver files\\chromedriver.exe");
 		//System.setProperty("webdriver.gecko.driver","F:\\Browser Gecko Driver files\\geckodriver.exe");
 		//System.setProperty("webdriver.ie.driver","F:\\Browser IE driver files\\IEDriverServer.exe");
-		
-		
+
+
 		driver = new ChromeDriver();
 		//driver = new FirefoxDriver();
 		//driver = new InternetExplorerDriver();
-		
+
 		driver.manage().window().maximize();
 		driver.get("http://10.6.6.132:3000/login");
 		Thread.sleep(2000);
@@ -75,7 +75,7 @@ public class EyeGuideAuto_test {
 			driver.findElement(By.cssSelector(".ant-select-dropdown-menu-item")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@class='ant-btn confirmBtn ant-btn-primary']")).click();
-
+			Thread.sleep(3000);
 		}catch(Exception e)
 		{
 			System.out.println("Logged in as User or Organization admin");
@@ -92,7 +92,7 @@ public class EyeGuideAuto_test {
 			//			driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/ul/li[2]/div/span/span")).click();
 			//			Thread.sleep(2000);
 			//			driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/ul/li[2]/ul/li[1]/div/span")).click();
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
 
 
 			//			//Add Profile Start
@@ -343,20 +343,20 @@ public class EyeGuideAuto_test {
 			driver.findElement(By.xpath("//a[text()='Add']")).click();
 			Thread.sleep(2000);
 		}
-//		WebElement ele = driver.findElement(By.xpath("//div[@class='ant-modal-content']/div[@class='ant-modal-footer']/div//button[@class='ant-btn ant-btn-primary']"));
-//		JavascriptExecutor executor = (JavascriptExecutor)driver;
-//		executor.executeScript("arguments[0].click();", ele);
-		
+		//		WebElement ele = driver.findElement(By.xpath("//div[@class='ant-modal-content']/div[@class='ant-modal-footer']/div//button[@class='ant-btn ant-btn-primary']"));
+		//		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		//		executor.executeScript("arguments[0].click();", ele);
+
 		new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ant-modal-content']/div[@class='ant-modal-footer']/div//button[@class='ant-btn ant-btn-primary']"))).click();
 		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
 		Thread.sleep(5000);
 	}
-	
+
 	@Test
 	public void TestEdit() throws Exception {
 		driver.findElement(By.xpath("//a[starts-with(@href,'/viewtest/')]")).click();
 		Thread.sleep(2000);
-	//	driver.findElement(By.xpath("//*[@class='anticon anticon-left']")).click();
+		//	driver.findElement(By.xpath("//*[@class='anticon anticon-left']")).click();
 		List<WebElement> elements1 = driver.findElements(By.xpath("//a[starts-with(@href,'/profile/view/')]"));
 		for (int i=0; i<elements1.size();i++){
 			System.out.println("View Elements:" + elements1.get(i));
@@ -366,9 +366,9 @@ public class EyeGuideAuto_test {
 		driver.findElement(By.xpath("//a[text()='Edit']")).click();
 		Thread.sleep(2000);
 		List<WebElement> elements2=driver.findElements(By.xpath("//*[@class='ant-radio-input']"));
-//		for(int i=0;i<=elements2.size();i++) {
-//			System.out.println("View Radio buttons"+i);
-//		}
+		//		for(int i=0;i<=elements2.size();i++) {
+		//			System.out.println("View Radio buttons"+i);
+		//		}
 		WebElement e1=elements2.get(0);
 		WebElement e2=elements2.get(1);
 		if(e1.isSelected()) {
@@ -377,7 +377,7 @@ public class EyeGuideAuto_test {
 		else if(e2.isSelected()) {
 			e1.click();
 		}
-		
+
 		List<WebElement> elements3=driver.findElements(By.xpath("//*[@class='ant-btn ant-btn-primary']"));
 		elements3.get(2).click();
 
@@ -405,7 +405,7 @@ public class EyeGuideAuto_test {
 		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
 		System.out.println("Test Passed");
 	}
-	
+
 	@Test
 	public void UserUpload() throws Exception{
 		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/a[2]/button")).click();
@@ -415,12 +415,12 @@ public class EyeGuideAuto_test {
 		we.sendKeys("F:\\eclipse\\File Handling\\demo.csv");
 		Thread.sleep(3000);
 		driver.findElement(By.cssSelector(".downloadBtn")).click();
-//		Thread.sleep(3000);
-//		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/span[2]/span[1]/a")).click();
-//		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span[1]/i")).click();
-//		WebElement wes=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[1]/div[2]/div/div/div/div[5]/div[3]/div/div/div[1]/label/span[1]/input"));
-//		wes.click();
-//		driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[1]/div[3]/div/button[2]")).click();
+		//		Thread.sleep(3000);
+		//		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/span[2]/span[1]/a")).click();
+		//		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span[1]/i")).click();
+		//		WebElement wes=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[1]/div[2]/div/div/div/div[5]/div[3]/div/div/div[1]/label/span[1]/input"));
+		//		wes.click();
+		//		driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[1]/div[3]/div/button[2]")).click();
 		Thread.sleep(5000);
 	}
 	@AfterTest
