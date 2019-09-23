@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -47,7 +48,7 @@ public class EyeGuideAuto_test {
 		//driver = new FirefoxDriver();
 		//driver = new InternetExplorerDriver();
 
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.get("http://10.6.6.132:3000/login");
 		Thread.sleep(2000);
 		driver.findElement(By.name("phoneInput")).clear();
@@ -87,6 +88,7 @@ public class EyeGuideAuto_test {
 	@Test
 	public void ProfileAddUpload() {//Add Profile & UPLOAD PROFILE
 		System.out.println("Test Case 2");
+		driver.findElement(By.xpath("//*[@class='anticon anticon-menu-unfold trigger']")).click();
 		try {
 			//			Thread.sleep(2000);
 			//			driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/ul/li[2]/div/span/span")).click();
@@ -99,17 +101,29 @@ public class EyeGuideAuto_test {
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ant-menu-submenu ant-menu-submenu-inline']//div[@class='ant-menu-submenu-title' and @aria-owns='rosters$Menu']//i[@class='anticon anticon-table']"))).click();
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div > div.sidepaneB.ant-layout-sider > div > ul > li.ant-menu-submenu.ant-menu-submenu-inline > div"))).click();
 			//	new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("anticon anticon-table"))).click();
-						List<WebElement> e1 = driver.findElements(By.xpath("//*[@class='ant-menu-submenu-title']"));
-						
-						e1.get(0).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//ul[@id='rosters$Menu']/li/div[@class='ant-menu-submenu-title']")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[@class='ant-menu-item ant-menu-item-selected']/a")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[@class='ant-menu-item']/a[starts-with(@href,'/profile/')]")).click();
-			Thread.sleep(2000);
+			//try {
+				List<WebElement> e1 = driver.findElements(By.xpath("//*[@class='ant-menu-submenu-title']"));
 
+				e1.get(0).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//ul[@id='rosters$Menu']/li/div[@class='ant-menu-submenu-title']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//li[@class='ant-menu-item ant-menu-item-selected']/a")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//li[@class='ant-menu-item']/a[starts-with(@href,'/profile/')]")).click();
+				Thread.sleep(2000);
+			//}catch(Exception e) {
+//				Actions a =new Actions(driver);
+//				WebElement ty=driver.findElement(By.xpath("//i[@class='anticon anticon-table']"));
+//				a.moveToElement(ty).build().perform();
+//				Thread.sleep(2000);
+//				List<WebElement> sy=driver.findElements(By.xpath("//div[@class='ant-menu-submenu-title']"));
+//				a.moveToElement(sy.get(0)).build().perform();
+//				Thread.sleep(5000);
+//				//List<WebElement> rr=driver.findElements(By.xpath("//a[text()='Profiles']"));
+//				new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#\\{e5a1a697-f92f-402b-ad3b-9b18d6d89151\\}\\$Menu > li:nth-child(1) > a"))).click();
+//				Thread.sleep(2000);
+			//}
 
 			///////UPLOAD CODE
 
@@ -323,11 +337,29 @@ public class EyeGuideAuto_test {
 	public void ShareTest() throws Exception{//SHARE TEST
 
 		System.out.println("Test Case 4");
-		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/ul/li[2]/ul/li[1]/ul/li[2]/a")).click();
-		Thread.sleep(5000);
-		WebElement we=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/table/thead/tr/th[1]/span/div/label/span/input"));
-		we.click();
-		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/button[1]")).click();
+		//try {
+			driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/ul/li[2]/ul/li[1]/ul/li[2]/a")).click();
+			Thread.sleep(5000);
+			WebElement we=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/table/thead/tr/th[1]/span/div/label/span/input"));
+			we.click();
+			driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/button[1]")).click();
+		//}catch(Exception e) {
+//			Actions a =new Actions(driver);
+//			WebElement r=driver.findElement(By.xpath("//i[@class='anticon anticon-table']"));
+//			a.moveToElement(r).build().perform();
+//			Thread.sleep(2000);
+//			List<WebElement> k=driver.findElements(By.xpath("//div[@class='ant-menu-submenu-title']"));
+//			a.moveToElement(k.get(0)).build().perform();
+//			Thread.sleep(2000);
+//			List<WebElement> u=driver.findElements(By.xpath("//a[starts-with(@href,'/test/')]"));
+//			u.get(0).click();
+//			Thread.sleep(2000);
+//			List<WebElement> v=driver.findElements(By.xpath("//*[@class='ant-checkbox-input']"));
+//			v.get(0).click();
+//			Thread.sleep(2000);
+//			driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary']")).click();
+	//	}
+		//CATCH NEEDED AND PUT ABOVE
 		//String email="ppatharetest@gmail.com";
 		for(int i=1;i<=2;i++){
 			String r="ppatharetest"+i+"@gmail.com";
