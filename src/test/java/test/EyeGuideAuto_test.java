@@ -436,6 +436,7 @@ String ln=test.names.ln();
 			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
+			Thread.sleep(2000);
 		}
 		else if(u1.equals("Organization Admin")) {
 			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
@@ -453,6 +454,7 @@ String ln=test.names.ln();
 		new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.ant-btn.ant-btn-primary"))).click();
 		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
 		System.out.println("Test Passed");
+		Thread.sleep(5000);
 	}
 
 	@Test
