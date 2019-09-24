@@ -427,31 +427,62 @@ public class EyeGuideAuto_test {
 		driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='User']")).getText();
 
 		List<WebElement> we= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows']"));
-		String u1=driver.findElement(By.cssSelector("#layout > div.contentWithTitle.ant-layout-content > div > div > div.contentWithoutTitle > div.ant-card.card.ant-card-wider-padding.ant-card-padding-transition > div.ant-card-body > div > div > div > div > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(6)")).getText();
+
 		//List<WebElement> we1= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='Organization Admin']"));
-		//String u1=we.get(5).getText();
+		String u1=we.get(5).getText();
 		//System.out.println(u1);
 		//String u2=we1.get(0).getText();
 		driver.findElement(By.xpath("//*[contains(@href,'/user/edit/')]")).click();
-		if(u1.equals("User")) {
-			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+		try {
+			if(u1.equals("User")) {
+				driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
+				Thread.sleep(2000);
+			}
+			else if(u1.equals("Organization Admin")) {
+				driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//li[text()='User']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@class='ant-select-selection__placeholder' and text()='Select Organization']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='ABCDE']")).click();
+			}
+
+
+
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
+		}catch(Exception e) {
+			int num1, num2, num3; //3 numbers in area code
+			int set2, set3; //sequence 2 and 3 of the phone number
+
+			Random generator = new Random();
+
+			//Area code number; Will not print 8 or 9
+			num1 = generator.nextInt(7) + 1; //add 1 so there is no 0 to begin  
+			num2 = generator.nextInt(8); //randomize to 8 becuase 0 counts as a number in the generator
+			num3 = generator.nextInt(8);
+
+			// Sequence two of phone number
+			// the plus 100 is so there will always be a 3 digit number
+			// randomize to 643 because 0 starts the first placement so if i randomized up to 642 it would only go up yo 641 plus 100
+			// and i used 643 so when it adds 100 it will not succeed 742 
+			set2 = generator.nextInt(643) + 100;
+
+			//Sequence 3 of numebr
+			// add 1000 so there will always be 4 numbers
+			//8999 so it wont succed 9999 when the 1000 is added
+			set3 = generator.nextInt(8999) + 1000;
+
+
+			String sss=  "(" + num1 + "" + num2 + "" + num3 + ")" + "-" + set2 + "-" + set3 ;
+			driver.findElement(By.xpath("//*[@placeholder='eg 0123-456-789']")).clear();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@placeholder='eg 0123-456-789']")).sendKeys(sss);
 			Thread.sleep(2000);
 		}
-		else if(u1.equals("Organization Admin")) {
-			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[text()='User']")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//div[@class='ant-select-selection__placeholder' and text()='Select Organization']")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='ABCDE']")).click();
 
-
-
-			Thread.sleep(2000);
-		}
 		new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.ant-btn.ant-btn-primary"))).click();
 		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
 		System.out.println("Test Passed");
