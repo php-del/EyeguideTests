@@ -430,7 +430,7 @@ public class EyeGuideAuto_test {
 
 		//List<WebElement> we1= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='Organization Admin']"));
 		String u1=we.get(5).getText();
-		//System.out.println(u1);
+		System.out.println(u1);
 		//String u2=we1.get(0).getText();
 		driver.findElement(By.xpath("//*[contains(@href,'/user/edit/')]")).click();
 		try {
