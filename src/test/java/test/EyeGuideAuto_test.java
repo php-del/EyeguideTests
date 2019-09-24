@@ -424,26 +424,32 @@ String ln=test.names.ln();
 	public void UserEdit() throws Exception {
 		driver.findElement(By.xpath("//*[@href='/user']")).click();
 		Thread.sleep(2000);
+		driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='User']")).getText();
+
+		List<WebElement> we= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows']"));
+		//List<WebElement> we1= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='Organization Admin']"));
+		String u1=we.get(5).getText();
+		System.out.println(u1);
+		//String u2=we1.get(0).getText();
 		driver.findElement(By.xpath("//*[contains(@href,'/user/edit/')]")).click();
-		Thread.sleep(2000);
-		try {
+		if(u1.equals("User")) {
 			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
-			Thread.sleep(2000);
-		}catch(Exception e) {
+		}
+		else if(u1.equals("Organization Admin")) {
 			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//li[text()='User']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[@class='ant-select-selection__placeholder' and text()='Select Organization']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='ABCDE']")).click();
+
+
+
+			Thread.sleep(2000);
 		}
-		//driver.findElement(By.xpath("//div[text()='Select Organization']")).click();
-		//Thread.sleep(2000);
-		//driver.findElement(By.xpath("//li[text()='"+m+"']")).click();
-		//Thread.sleep(2000);
-		//driver.findElement(By.xpath("//*[@class='ant-card-body']")).click();
-		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.ant-btn.ant-btn-primary"))).click();
 		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
 		System.out.println("Test Passed");
