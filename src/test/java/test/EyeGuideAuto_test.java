@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 //import org.openqa.selenium.interactions.Actions;
-//import mylib.names;
+import test.names;
 import java.util.*;
 
 //import javax.swing.JScrollPane;
@@ -274,13 +274,14 @@ public class EyeGuideAuto_test {
 
 
 			///////UPLOAD CODE
-
+String fn=test.names.fn();
+String ln=test.names.ln();
 
 			driver.findElement(By.xpath("//div[@class='ant-card-body']//a[starts-with(@href,'/profile/add')]//button[@class='ant-btn ant-btn-primary']")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@class='ant-input fill' and @placeholder='e.g. Johnny']")).sendKeys("fna");
+			driver.findElement(By.xpath("//*[@class='ant-input fill' and @placeholder='e.g. Johnny']")).sendKeys(fn);
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@class='ant-input fill' and @placeholder='e.g Thomas']")).sendKeys("fnb");
+			driver.findElement(By.xpath("//*[@class='ant-input fill' and @placeholder='e.g Thomas']")).sendKeys(ln);
 			Thread.sleep(2000);
 			driver.findElement(By.cssSelector(".ant-calendar-picker-input")).click();
 			Thread.sleep(3000);
@@ -312,9 +313,9 @@ public class EyeGuideAuto_test {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@class='anticon anticon-filter']")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@class='ant-input' and @placeholder='e.g. Johnny']")).sendKeys("fna");
+			driver.findElement(By.xpath("//*[@class='ant-input' and @placeholder='e.g. Johnny']")).sendKeys(fn);
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@class='ant-input' and @placeholder='e.g. Thomas']")).sendKeys("fnb");
+			driver.findElement(By.xpath("//*[@class='ant-input' and @placeholder='e.g. Thomas']")).sendKeys(ln);
 			Thread.sleep(2000);
 
 			driver.findElement(By.xpath("//div[@class='ant-modal-footer']//div//button[@class='ant-btn ant-btn-primary']")).click();
@@ -340,35 +341,35 @@ public class EyeGuideAuto_test {
 
 		System.out.println("Test Case 4");
 		try {
-		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/ul/li[2]/ul/li[1]/ul/li[2]/a")).click();
-		Thread.sleep(5000);
-		WebElement we=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/table/thead/tr/th[1]/span/div/label/span/input"));
-		we.click();
-		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/button[1]")).click();
+			driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/ul/li[2]/ul/li[1]/ul/li[2]/a")).click();
+			Thread.sleep(5000);
+			WebElement we=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/table/thead/tr/th[1]/span/div/label/span/input"));
+			we.click();
+			driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/button[1]")).click();
 		}catch(Exception e) {
-					Actions a =new Actions(driver);
-					WebElement r=driver.findElement(By.xpath("//i[@class='anticon anticon-table']"));
-					a.moveToElement(r).build().perform();
-					Thread.sleep(2000);
-					List<WebElement> k=driver.findElements(By.xpath("//div[@class='ant-menu-submenu-title']"));
-					a.moveToElement(k.get(0)).build().perform();
-					Thread.sleep(5000);
-					List<WebElement> u=driver.findElements(By.xpath("//a[starts-with(@href,'/test/')]"));
-					JavascriptExecutor jses=(JavascriptExecutor) driver;
-					jses.executeScript("arguments[0].click();",u.get(0));
-					Thread.sleep(2000);
-					List<WebElement> v=driver.findElements(By.xpath("//*[@class='ant-checkbox-input']"));
-					v.get(0).click();
-					Thread.sleep(2000);
-					driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary']")).click();
-			}
+			Actions a =new Actions(driver);
+			WebElement r=driver.findElement(By.xpath("//i[@class='anticon anticon-table']"));
+			a.moveToElement(r).build().perform();
+			Thread.sleep(2000);
+			List<WebElement> k=driver.findElements(By.xpath("//div[@class='ant-menu-submenu-title']"));
+			a.moveToElement(k.get(0)).build().perform();
+			Thread.sleep(5000);
+			List<WebElement> u=driver.findElements(By.xpath("//a[starts-with(@href,'/test/')]"));
+			JavascriptExecutor jses=(JavascriptExecutor) driver;
+			jses.executeScript("arguments[0].click();",u.get(0));
+			Thread.sleep(2000);
+			List<WebElement> v=driver.findElements(By.xpath("//*[@class='ant-checkbox-input']"));
+			v.get(0).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//button[@class='ant-btn ant-btn-primary']")).click();
+		}
 		//CATCH NEEDED AND PUT ABOVE
 		//String email="ppatharetest@gmail.com";
 		for(int i=1;i<=2;i++){
 			String r="ppatharetest"+i+"@gmail.com";
-			driver.findElement(By.xpath("//*[@placeholder='Enter First Name']")).sendKeys("t1");
+			driver.findElement(By.xpath("//*[@placeholder='Enter First Name']")).sendKeys(test.names.fn());
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@placeholder='Enter Last Name']")).sendKeys("t2");
+			driver.findElement(By.xpath("//*[@placeholder='Enter Last Name']")).sendKeys(test.names.ln());
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@placeholder='Enter email']")).sendKeys(r);
 			Thread.sleep(2000);
@@ -425,10 +426,18 @@ public class EyeGuideAuto_test {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[contains(@href,'/user/edit/')]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
-		Thread.sleep(2000);
+		try {
+			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//li[text()='Organization Admin']")).click();
+			Thread.sleep(2000);
+		}catch(Exception e) {
+			driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[@class='ant-select-selection__placeholder' and text()='Select Organization']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='ABCDE']")).click();
+		}
 		//driver.findElement(By.xpath("//div[text()='Select Organization']")).click();
 		//Thread.sleep(2000);
 		//driver.findElement(By.xpath("//li[text()='"+m+"']")).click();
@@ -448,7 +457,9 @@ public class EyeGuideAuto_test {
 		Thread.sleep(3000);
 		we.sendKeys("F:\\eclipse\\File Handling\\demo.csv");
 		Thread.sleep(3000);
-		driver.findElement(By.cssSelector(".downloadBtn")).click();
+		new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".downloadBtn"))).click();
+		System.out.println(new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ant-message"))).getText());
+		//driver.findElement(By.cssSelector(".downloadBtn")).click();
 		//		Thread.sleep(3000);
 		//		driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/span[2]/span[1]/a")).click();
 		//		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span[1]/i")).click();
