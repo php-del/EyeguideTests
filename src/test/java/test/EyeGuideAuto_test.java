@@ -274,8 +274,8 @@ public class EyeGuideAuto_test {
 
 
 			///////UPLOAD CODE
-String fn=test.names.fn();
-String ln=test.names.ln();
+			String fn=test.names.fn();
+			String ln=test.names.ln();
 
 			driver.findElement(By.xpath("//div[@class='ant-card-body']//a[starts-with(@href,'/profile/add')]//button[@class='ant-btn ant-btn-primary']")).click();
 			Thread.sleep(2000);
@@ -427,9 +427,10 @@ String ln=test.names.ln();
 		driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='User']")).getText();
 
 		List<WebElement> we= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows']"));
+		String u1=driver.findElement(By.cssSelector("#layout > div.contentWithTitle.ant-layout-content > div > div > div.contentWithoutTitle > div.ant-card.card.ant-card-wider-padding.ant-card-padding-transition > div.ant-card-body > div > div > div > div > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(6)")).getText();
 		//List<WebElement> we1= driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr//td[@class='ant-table-column-has-filters rows' and text()='Organization Admin']"));
-		String u1=we.get(5).getText();
-		System.out.println(u1);
+		//String u1=we.get(5).getText();
+		//System.out.println(u1);
 		//String u2=we1.get(0).getText();
 		driver.findElement(By.xpath("//*[contains(@href,'/user/edit/')]")).click();
 		if(u1.equals("User")) {
