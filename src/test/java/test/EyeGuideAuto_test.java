@@ -88,7 +88,9 @@ public class EyeGuideAuto_test {
 	@Test
 	public void ProfileAddUpload() {//Add Profile & UPLOAD PROFILE
 		System.out.println("Test Case 2");
-		//	driver.findElement(By.xpath("//*[@class='anticon anticon-menu-unfold trigger']")).click();
+		try {
+			driver.findElement(By.xpath("//*[@class='anticon anticon-menu-unfold trigger']")).click();
+		}catch(Exception e) {System.out.println("Trigger folded");}
 		try {
 			//			Thread.sleep(2000);
 			//			driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/ul/li[2]/div/span/span")).click();
