@@ -477,6 +477,7 @@ public class EyeGuideAuto_test {
 
 
 			String sss=  "(" + num1 + "" + num2 + "" + num3 + ")" + "-" + set2 + "-" + set3 ;
+			System.out.println(sss);
 			driver.findElement(By.xpath("//*[@placeholder='eg 0123-456-789']")).clear();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@placeholder='eg 0123-456-789']")).sendKeys(sss);
