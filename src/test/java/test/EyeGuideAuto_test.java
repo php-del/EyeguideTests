@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.interactions.Actions;
 import test.names;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 //import javax.swing.JScrollPane;
 public class EyeGuideAuto_test {
@@ -49,6 +50,7 @@ public class EyeGuideAuto_test {
 		//driver = new InternetExplorerDriver();
 
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("http://10.6.6.132:3000/login");
 		Thread.sleep(2000);
 		driver.findElement(By.name("phoneInput")).clear();
@@ -88,6 +90,7 @@ public class EyeGuideAuto_test {
 	@Test
 	public void ProfileAddUpload() {//Add Profile & UPLOAD PROFILE
 		System.out.println("Test Case 2");
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		try {
 			driver.findElement(By.xpath("//*[@class='anticon anticon-menu-unfold trigger']")).click();
 		}catch(Exception e) {System.out.println("Trigger folded");}
