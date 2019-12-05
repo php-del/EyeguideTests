@@ -51,12 +51,12 @@ public class EyeGuideAuto_test {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("http://10.6.6.132:3000/login");
+		driver.get("https://staging.eye.guide/login");
 		Thread.sleep(2000);
 		driver.findElement(By.name("phoneInput")).clear();
 		Thread.sleep(2000);
-		driver.findElement(By.name("phoneInput")).sendKeys("superadmin");
-		driver.findElement(By.xpath("//div[@id='root']/div/div/div[4]/div[2]/div[2]/span/input")).sendKeys("super");
+		driver.findElement(By.name("phoneInput")).sendKeys("demo@eye.guide");
+		driver.findElement(By.xpath("//div[@id='root']/div/div/div[4]/div[2]/div[2]/span/input")).sendKeys("demo");
 		driver.findElement(By.xpath("//div[@id='root']/div/div/div[5]/div/div[2]/button")).click();
 		Thread.sleep(2000);
 		try {
