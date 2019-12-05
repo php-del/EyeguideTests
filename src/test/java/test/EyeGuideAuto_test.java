@@ -72,7 +72,7 @@ public class EyeGuideAuto_test {
 			//driver.findElement(By.xpath("//*[@class='ant-select-selection__rendered']/div[text()='Select an Organization']")).click();
 			//s.sendKeys(m);
 			//Thread.sleep(2000);
-			driver.findElement(By.xpath("//input[@class='ant-select-search__field']")).sendKeys("ABCD");
+			driver.findElement(By.xpath("//input[@class='ant-select-search__field']")).sendKeys("EyeGuide Events");
 			//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.ant-select-selection__placeholder"))).click();
 			Thread.sleep(2000);
 			driver.findElement(By.cssSelector(".ant-select-dropdown-menu-item")).click();
