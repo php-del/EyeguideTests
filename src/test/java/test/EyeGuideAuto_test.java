@@ -392,6 +392,7 @@ public class EyeGuideAuto_test {
 
 	@Test
 	public void TestEdit() throws Exception {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//a[starts-with(@href,'/viewtest/')]")).click();
 		Thread.sleep(2000);
 		//	driver.findElement(By.xpath("//*[@class='anticon anticon-left']")).click();
@@ -399,6 +400,7 @@ public class EyeGuideAuto_test {
 		for (int i=0; i<elements1.size();i++){
 			System.out.println("View Elements:" + elements1.get(i));
 		}
+		Thread.sleep(10000);
 		elements1.get(0).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[text()='Edit']")).click();
@@ -448,9 +450,9 @@ public class EyeGuideAuto_test {
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//li[text()='User']")).click();
 				Thread.sleep(2000);
-				driver.findElement(By.xpath("//div[@class='ant-select-selection__placeholder' and text()='Select Organization']")).click();
+				driver.findElement(By.xpath("//*[@class='ant-select-search ant-select-search--inline']")).click();
 				Thread.sleep(2000);
-				driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='ABCDE']")).click();
+				driver.findElement(By.xpath("//li[@class='ant-select-dropdown-menu-item' and text()='EyeGuide Events']")).click();
 			}
 
 
